@@ -1,14 +1,6 @@
 @app
 auth-with-sms
 
-@aws
-profile smallwins
-region us-east-1
-
-@macros
-architect/macro-http-api
-patch
-
 @http
 get / # show secret if logged in otherwise redirect to login page
 get /login # show a form to enter phone number; successful submission redirects to /login?pin 
@@ -18,9 +10,3 @@ post /pin # check pin and maybe login
 
 @events
 send-pin
-
-@tables
-data
-  scopeID *String
-  dataID **String
-  ttl TTL
