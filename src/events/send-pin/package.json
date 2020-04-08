@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@begin/data": "^1.2.0",
+    "twilio": "^3.42.1"
+  }
+}
