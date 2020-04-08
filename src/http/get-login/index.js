@@ -4,7 +4,7 @@ const login = require('@architect/views/login')
 
 async function handler(req) {
   return {
-    html: req.query.pin? pin(req.query.pin) : login()
+    html: req.query && req.query.pin? pin(req.query.pin) : login()
   }
 }
 

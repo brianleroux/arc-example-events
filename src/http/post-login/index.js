@@ -4,7 +4,7 @@ async function login(req) {
   // publish the request payload directly to sns
   await arc.events.publish({
     name: 'send-pin',
-    payload: { req },
+    payload: req.body,
   })
   // redirect to the pin screen
   return {
