@@ -1,11 +1,12 @@
-exports.handler = arc.http.async(pin)
+const arc = require('@architect/functions')
+const data = require('@begin/data')
 
 async function pin(req) {
   // get the token 
   let token = data.get({ table, key })
-  if (token && req.params.phone === token.phone) {
+  if (token && req.body.phone === token.phone) {
     return {
-      session: { account: { phone }},
+      session: { phone: token.phone },
       location: '/'
     }
   }
@@ -13,3 +14,5 @@ async function pin(req) {
     location: '/login?failed'
   }
 }
+
+exports.handler = arc.http.async(pin)

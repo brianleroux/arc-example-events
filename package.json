@@ -1,0 +1,26 @@
+{
+  "name": "arc-example-events",
+  "version": "1.0.0",
+  "description": "demo of using twilio to login via sms (with apigateway, sns, lambda and dynamodb)",
+  "main": "index.js",
+  "scripts": {
+    "start": "sandbox",
+    "deploy": "arc-deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianleroux/arc-example-events.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianleroux/arc-example-events/issues"
+  },
+  "homepage": "https://github.com/brianleroux/arc-example-events#readme",
+  "dependencies": {
+    "@architect/deploy": "^1.6.0",
+    "@architect/macro-http-api": "^1.0.0",
+    "@architect/sandbox": "^1.9.2"
+  }
+}

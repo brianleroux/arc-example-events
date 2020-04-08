@@ -10,15 +10,20 @@ exports.handler = async function subscribe(event) {
     phone: event.body.phone 
   })
 
+  console.log('got nonce', nonce)
+
   // send the pin
   let sid = process.env.TWILIO_SID
   let token = process.env.TWILIO_TOKEN
   let phone = process.env.TWILIO_PHONE
   let client = twilio(sid, token)
 
-  return client.messages.create({
+  console.log('infos', {sid, token, phone})
+
+  let result = await client.messages.create({
     body: `here is your pin code: ${ nonce.key }`, 
     from: phone, 
     to: event.body.phone
   })
+  console.log(result)
 }

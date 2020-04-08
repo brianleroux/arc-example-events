@@ -1,2 +1,4 @@
 .arc-env
+.arc-env-bak
 node_modules
+sam.*

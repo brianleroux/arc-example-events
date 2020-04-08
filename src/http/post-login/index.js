@@ -1,13 +1,15 @@
-let arc = require('@architect/functions')
+const arc = require('@architect/functions')
 
-exports.handler = arc.http.async(route)
-
-async function route(req) {
+async function login(req) {
+  // publish the request payload directly to sns
   await arc.events.publish({
     name: 'send-pin',
     payload: { req },
   })
+  // redirect to the pin screen
   return {
     location: `/login?pin=${ Buffer.from(req.body.phone).toString('base64') }` 
   }
 }
+
+exports.handler = arc.http.async(login)

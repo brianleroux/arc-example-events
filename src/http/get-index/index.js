@@ -1,12 +1,10 @@
-let arc = require('@architect/functions')
-let secret = require('@architect/views/secret')
-
-exports.handler = arc.http.async(index)
+const arc = require('@architect/functions')
+const secret = require('@architect/views/secret')
 
 async function index(req) {
-  if (req.session.account) {
+  if (req.session.phone) {
     return {
-      html: secret()
+      html: secret(req.session.phone)
     }
   }
   else {
@@ -15,3 +13,5 @@ async function index(req) {
     }
   }
 }
+
+exports.handler = arc.http.async(index)
